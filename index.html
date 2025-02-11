@@ -10,13 +10,20 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 
+    <!-- Boxicons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+
     <!-- Css styles -->
     <link rel="stylesheet" href="./Styles/style.css" />
+
     <title>Scissors</title>
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <header class="header">
         <!-- Navigation -->
         <nav class="nav">
           <a href="#" class="nav-logo">
@@ -34,6 +41,10 @@
             <a href="#" class="btn btn-primary">Log in</a>
             <a href="#" class="btn btn-secondary">Try for free</a>
           </div>
+
+          <div class="menu" id="mobile-menu">
+            <i class="bx bx-menu" id="mobile-menu"></i>
+          </div>
         </nav>
       </header>
 
@@ -49,7 +60,7 @@
           Utilize custom slugs, branded links, and domain customization options
           to reinforce your brand presence and enhance user engagement.
         </p>
-        <div class="btns-flex btns-justify">
+        <div class="btns-flex">
           <a href="#" class="btn btn-secondary">Sign Up</a>
           <a href="#" class="btn btn-primary">Learn more</a>
         </div>
@@ -144,9 +155,9 @@
       <!-- Pricing Section -->
       <section class="pricing">
         <div class="pricing-header">
-          <h2 class="border-left">
-            A <span>price perfect</span> for your needs.
-          </h2>
+          <div class="border-left">
+            <h2>A <span>price perfect</span> for your needs.</h2>
+          </div>
           <p>
             From catering for your personal, business, event, socials needs, you
             can be rest assured we have you in mind in our pricing.
@@ -505,5 +516,8 @@
         </div>
       </footer>
     </div>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
   </body>
 </html>

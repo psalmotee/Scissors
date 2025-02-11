@@ -26,6 +26,7 @@
   font-weight: bold;
   src: local("Gilroy-Bold"), url("../fonts/Gilroy-Bold.woff") format("woff");
 }
+
 /* Reset and Base Styles */
 * {
   margin: 0;
@@ -50,11 +51,6 @@ body {
   background-color: var(--bg-color);
 }
 
-.wrapper {
-  /* max-width: 1200px; */
-  margin: 0 auto;
-}
-
 /* list and anchor tag */
 li,
 a {
@@ -66,6 +62,8 @@ a {
 .btns-flex {
   display: flex;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -74,10 +72,6 @@ a {
   cursor: pointer;
   border-radius: 50px;
   transition: all 0.3s ease;
-}
-
-.btns-justify {
-  justify-content: center;
 }
 
 .btn-primary {
@@ -113,13 +107,19 @@ a {
   padding-left: 0.5rem;
 }
 
+.header {
+  background: var(--bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 /* Navigation */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -130,7 +130,6 @@ a {
   font-weight: bold;
   color: var(--secondary-color);
   text-decoration: none;
-  font-size: 16px;
 }
 
 .nav-logo img {
@@ -139,14 +138,35 @@ a {
 
 .nav-menu {
   display: none;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+}
+
+.nav-menu.active {
+  display: flex;
+  background: var(--bg-color);
+}
+
+.nav-menu li {
+  margin: 0.5rem 0;
+  text-align: center;
 }
 
 .nav-menu li a {
   color: var(--primary-color);
+  transition: all ease 0.3s;
 }
 
 .nav-menu li a:hover {
   text-decoration: underline;
+}
+
+.menu {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Hero Section */
@@ -283,10 +303,6 @@ a {
   margin: 0 auto;
 }
 
-.pricing-header {
-  /* padding: 2rem 25rem; */
-}
-
 .pricing-header h2 {
   font-weight: bold;
   font-size: 2rem;
@@ -313,12 +329,13 @@ a {
 
 .pricing-card:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+  transform: translateX(-5px);
 }
 
 .pricing-card.featured {
   background-color: #1e3448;
-  color: white;
+  color: #fff;
+  z-index: 1;
 }
 
 .pricing-card.featured:hover {
@@ -613,29 +630,10 @@ details[open] summary::after {
 }
 
 /* Media Queries */
-@media (min-width: 768px) {
-  /* General */
-  .btn {
-    padding: 6px 20px;
-  }
-
-  .nav-logo {
-    font-size: 24px;
-  }
-  .nav-logo img {
-    width: 24px;
-  }
-
-  .nav-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  /* Hero Section */
+@media screen and (min-width: 768px) {
   .hero h1 {
-    font-size: 3rem;
-    line-height: 96px;
+    font-size: 2.5rem;
+    line-height: 48px;
   }
 
   .hero-paint {
@@ -655,7 +653,7 @@ details[open] summary::after {
     margin-top: 3rem;
   }
 
-  /* Stats Section */
+  /* Stacts Swection */
   .stats-container {
     grid-template-columns: 275px 1fr;
     gap: 2rem;
@@ -696,6 +694,72 @@ details[open] summary::after {
     font-size: 2rem;
   }
 
+  .pricing-header h2 {
+    font-size: 2.5rem;
+  }
+
+  /* FAQs Sction */
+  .faq {
+    margin: 5rem auto;
+  }
+  .faq h2 {
+    font-size: 2.5rem;
+  }
+
+  details {
+    width: 100%;
+  }
+
+  /* Revolutionizing */
+  .rev img {
+    width: 400px;
+    height: 250px;
+  }
+
+  .rev h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* General */
+  .btn {
+    padding: 6px 20px;
+  }
+
+  .nav {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .nav-logo {
+    font-size: 2rem;
+  }
+
+  .nav-logo img {
+    width: 24px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    position: static;
+    width: auto;
+    flex-direction: row;
+  }
+
+  .nav-menu li {
+    margin: 0 0.8rem;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+    font-size: 3rem;
+    line-height: 96px;
+  }
+
   /* Princing */
   .pricing-header {
     text-align: center;
@@ -714,27 +778,6 @@ details[open] summary::after {
 
   .pricing-card.featured {
     transform: scale(1.15);
-  }
-
-  /* FAQs Sction */
-  .faq {
-    margin: 5rem auto;
-  }
-  .faq h2 {
-    font-size: 2.5rem;
-  }
-
-  details {
-    width: 100%;
-  }
-
-  .rev img {
-    width: 400px;
-    height: 250px;
-  }
-
-  .rev h2 {
-    font-size: 2.5rem;
   }
 
   /* Footer */
